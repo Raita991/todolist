@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+<body class="container">
+<h1>ToDo List by Raitashi</h1>
+{{ form_start(form) }}
+    {{ form_row(form.task, { 'attr' : {'class': 'form-control' }},
+    { 'label-attr' : {'class': 'form-label'}}) }}
+    {{form_row(form.submit, { 'attr' : {'class': 'btn btn-succes'}})}}
+{{ form_end(form) }}
+{% for result in results  %}
+    <table class="table">
+        <th scope="row">{{result.id}}
+        <td>{{result.task}}</td>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-warning btn-sm" name="result" onclick=location.href="/{{result.id}}">Supprimer</button>
+        </div>
+        </th>
+    </table>
+{% endfor %}
+</body>
+{% endblock %}
