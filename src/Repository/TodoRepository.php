@@ -57,20 +57,15 @@ class TodoRepository extends ServiceEntityRepository
 
     public function DeleteTask(int $result)
     {
-        $conn = $this->getEntityManager()->getConnection();
-
-        $sql = '
-            DELETE i
-            FROM App\Entity\Todo i
-            WHERE i.id = id'
-        )->setParameter(
-            'id',
-            $result,
-        );
-        $stmt = $conn->prepare($sql);
-        $resultSet = $stmt->executeQuery();
-
-        return void;
+        return $this->getEntityManager()->createQuery(
+            'DELETE FROM App\Entity\todo i
+            WHERE i.id = :id'
+        )
+            ->setParameter(
+                'id',
+                $result,
+            )
+            ->getResult()
         ;
     }
     /*public function findTask(string $task) : array

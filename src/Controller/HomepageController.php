@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Todo;
 use App\Repository\TodoRepository;
 use App\Form\TaskListType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
